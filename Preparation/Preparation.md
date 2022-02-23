@@ -25,22 +25,22 @@ I am going to use C# and SQL for the database with the programs SQL Server Manag
 
 4) The time schedule you want to follow (work 3 hours a week).
 
-1ºWeek: Planning, database design. 
+1ÂºWeek: Planning, database design. 
 
-2ºWeek: Database creation in Sql and SQL Connection with C#.
+2ÂºWeek: Database creation in Sql and SQL Connection with C#.
 
-3ºWeek: Check the connection and start with the Aplication.
+3ÂºWeek: Check the connection and start with the Aplication.
 
-4ºWeek: Creation Login Form, forget password form.
+4ÂºWeek: Creation Login Form, forget password form.
 
-5ºWeek: Creation the main student form and the main professor form.
+5ÂºWeek: Creation the main student form and the main professor form.
 
-6ºWeek: Creation the form profile to student and the teacher form profile.
+6ÂºWeek: Creation the form profile to student and the teacher form profile.
 
-7ºWeek: Creation the forms to do the exam the students.
+7ÂºWeek: Creation the forms to do the exam the students.
 
-8ºWeek: Creation the forms to create the exam the teachers.
+8ÂºWeek: Creation the forms to create the exam the teachers.
 
-9ºWeek: Testing the app, looking for bugs and fixing them.
+9ÂºWeek: Testing the app, looking for bugs and fixing them.
 
-10ºWeek: Present the project.
+10ÂºWeek: Follow the testing and fixing bugs if not finished last week and present the project.
