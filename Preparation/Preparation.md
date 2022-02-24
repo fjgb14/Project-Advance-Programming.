@@ -2,15 +2,25 @@
 				QUIZ PROJECT
 
 -There 2 types of users, student and professor.
+
 -There is a login at the beginning for student or professors.
+
 -There is a password recovery form, in case you forget your password.
+
 -Each exam has a name, code and list of questions.
+
 -Each question has 4 possible options and one of the 4 options is the solution.
+
 -The student enters a code and the matching exam (quiz) appears.
+
 -The student selects an answer for each question.
+
 -When the exam is completely answered, the grade appears.
+
 -Students can view their course grades that he has done or change their password in their profile.
+
 -Professor can view the grades of students who have taken their exams or change the password on their profile.
+
 -Professor can do one or more exams(Quiz).
 
 2) Questions you want to ask.
