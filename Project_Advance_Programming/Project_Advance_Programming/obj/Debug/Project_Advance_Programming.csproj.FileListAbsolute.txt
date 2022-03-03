@@ -1,0 +1,10 @@
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\bin\Debug\Project_Advance_Programming.exe.config
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\bin\Debug\Project_Advance_Programming.exe
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\bin\Debug\Project_Advance_Programming.pdb
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.AssemblyReference.cache
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.SuggestedBindingRedirects.cache
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.CheckConnection.resources
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.GenerateResource.cache
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.CoreCompileInputs.cache
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.exe
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.pdb
