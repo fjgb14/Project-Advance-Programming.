@@ -8,3 +8,5 @@ C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Progr
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.CoreCompileInputs.cache
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.exe
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.pdb
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.Login.resources
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.ForgotPassword.resources

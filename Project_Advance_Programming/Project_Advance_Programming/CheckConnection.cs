@@ -29,6 +29,9 @@ namespace Project_Advance_Programming
             dbConnection.Open();
             if (dbConnection != null && dbConnection.State == ConnectionState.Open) {
                 MessageBox.Show("The connection work.");
+                Login login = new Login();
+                login.Show();
+                this.Hide();
             }
         }
 
