@@ -31,14 +31,14 @@ namespace Project_Advance_Programming
             dbConnection.Open();
             if (dbConnection != null && dbConnection.State == ConnectionState.Open)
             {
-                sql = "Select Id From Student where Name='" + tbUsername.Text + "' AND Password='" + tbPassword.Text + "'";
+                sql = "Select Id From Student where Email='" + tbUsername.Text + "' AND Password='" + tbPassword.Text + "'";
                 command = new SqlCommand(sql, dbConnection);
                 dataReader = command.ExecuteReader();
                 if (dataReader.HasRows == false) //Not is a Student, maybe is a professor.
                 {
                     dataReader.Close();
 
-                    sql = "Select Id From Professor where Name='" + tbUsername.Text + "' AND Password='" + tbPassword.Text + "'";
+                    sql = "Select Id From Professor where Email='" + tbUsername.Text + "' AND Password='" + tbPassword.Text + "'";
                     command = new SqlCommand(sql, dbConnection);
                     dataReader = command.ExecuteReader();
 
@@ -64,6 +64,22 @@ namespace Project_Advance_Programming
                     }
 
                 }
+                else
+                {
+                    dataReader.Close();
+                    int idStudent = Convert.ToInt32(command.ExecuteScalar());
+
+                    MessageBox.Show("Welcome. " + tbUsername.Text);
+
+                    dataReader.Close();
+                    command.Dispose();
+                    dbConnection.Close();
+
+                    this.Hide();
+
+
+                }
+
             }
         }
         

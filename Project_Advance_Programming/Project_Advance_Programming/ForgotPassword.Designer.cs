@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbSecretCode = new System.Windows.Forms.TextBox();
             this.bChangePassword = new System.Windows.Forms.Button();
             this.tbRepeatPassword = new System.Windows.Forms.TextBox();
@@ -72,12 +72,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "SecretCode:";
             // 
-            // textBox1
+            // tbUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(330, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbUserName.Location = new System.Drawing.Point(330, 123);
+            this.tbUserName.Name = "tbUserName";
+            this.tbUserName.Size = new System.Drawing.Size(262, 20);
+            this.tbUserName.TabIndex = 3;
             // 
             // tbSecretCode
             // 
@@ -107,10 +107,11 @@
             // 
             // tbNewPassword
             // 
-            this.tbNewPassword.Location = new System.Drawing.Point(330, 249);
+            this.tbNewPassword.Location = new System.Drawing.Point(330, 250);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(262, 20);
             this.tbNewPassword.TabIndex = 8;
+            this.tbNewPassword.UseSystemPasswordChar = true;
             // 
             // lRepeatPassword
             // 
@@ -140,6 +141,7 @@
             this.bSaveChanges.TabIndex = 10;
             this.bSaveChanges.Text = "SAVE CHANGES";
             this.bSaveChanges.UseVisualStyleBackColor = true;
+            this.bSaveChanges.Click += new System.EventHandler(this.bSaveChanges_Click);
             // 
             // bBack
             // 
@@ -164,7 +166,7 @@
             this.Controls.Add(this.lNewPassword);
             this.Controls.Add(this.bChangePassword);
             this.Controls.Add(this.tbSecretCode);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -180,7 +182,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbSecretCode;
         private System.Windows.Forms.Button bChangePassword;
         private System.Windows.Forms.TextBox tbRepeatPassword;
