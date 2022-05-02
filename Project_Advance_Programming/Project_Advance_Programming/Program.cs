@@ -13,7 +13,7 @@ namespace Project_Advance_Programming
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CheckConnection());
+            Application.Run(new Login());
         }
     }
 }

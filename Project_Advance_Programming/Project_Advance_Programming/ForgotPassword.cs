@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Project_Advance_Programming
 {
@@ -19,113 +20,93 @@ namespace Project_Advance_Programming
         string sql;
         SqlCommand command;
         SqlDataReader dataReader;
-        String user = "";
-
         public ForgotPassword()
         {
             InitializeComponent();
-            lNewPassword.Hide();
-            lRepeatPassword.Hide();
-            bSaveChanges.Hide();
-            tbNewPassword.Hide();
-            tbRepeatPassword.Hide();
         }
 
-        private void bChangePassword_Click(object sender, EventArgs e)
-        {
-            dbConnection = new SqlConnection(connectionString);
-            dbConnection.Open();
-            if (dbConnection != null && dbConnection.State == ConnectionState.Open)
-            {
-                sql = "Select Id From Student where Name ='" + tbUserName.Text + "' AND SecretCode ='" + tbSecretCode.Text + "'";
-                command = new SqlCommand(sql, dbConnection);
-                dataReader = command.ExecuteReader();
-                if (dataReader.HasRows == false) //Not is a Student, maybe is a professor.
-                {
-                    dataReader.Close();
 
-                    sql = "Select Id From Professor where Name ='" + tbUserName.Text + "' AND SecretCode ='" + tbSecretCode.Text + "'";
-                    command = new SqlCommand(sql, dbConnection);
-                    dataReader = command.ExecuteReader();
-
-                    if (dataReader.HasRows == false) //Either is a Professor.
-                    {
-                        MessageBox.Show("Invalid username or password");
-                        dataReader.Close();
-                        command.Dispose();
-                        dbConnection.Close();
-                    }
-                    else
-                    {
-                        dataReader.Close();
-                        int idProfessor = Convert.ToInt32(command.ExecuteScalar());
-
-                        MessageBox.Show("Welcome. " + tbUserName.Text);
-
-                        user = "Professor";
-
-                        command.Dispose();
-
-
-                        lNewPassword.Show();
-                        lRepeatPassword.Show();
-                        bSaveChanges.Show();
-                        tbNewPassword.Show();
-                        tbRepeatPassword.Show();
-                        bChangePassword.Hide();
-
-                    }
-
-                }
-                else
-                {
-                    dataReader.Close();
-                    int idStudent = Convert.ToInt32(command.ExecuteScalar());
-
-                    MessageBox.Show("Welcome. " + tbUserName.Text);
-
-                    user = "Student";
-
-                    dataReader.Close();
-                    command.Dispose();
-
-
-                    lNewPassword.Show();
-                    lRepeatPassword.Show();
-                    bSaveChanges.Show();
-                    tbNewPassword.Show();
-                    tbRepeatPassword.Show();
-                    tbNewPassword.UseSystemPasswordChar = true;
-                    bChangePassword.Hide();
-
-
-                }
-            }
-
-        }
 
         private void bBack_Click(object sender, EventArgs e)
         {
             Login login = new Login();
+            this.Hide();
             login.Show();
-            this.Close();
         }
 
-        private void bSaveChanges_Click(object sender, EventArgs e)
+        private void bAccept_Click(object sender, EventArgs e)
         {
-            if (tbNewPassword.Text == "" || tbRepeatPassword.Text == "" || tbNewPassword.Text != tbRepeatPassword.Text) {
-                MessageBox.Show("Please enter a correct password.");
+            dbConnection = new SqlConnection(connectionString);
+            dbConnection.Open();
+            sql = "SELECT Password,Email FROM Student WHERE Email = '" + tbEmail.Text + "';";
+            command = new SqlCommand(sql, dbConnection);
+            dataReader = command.ExecuteReader();
 
-            }
-            else
+            if (dataReader.HasRows == false) //Not is a Student, maybe is a professor.
             {
-                sql = "Update "+ user + " set Password = '" + tbNewPassword.Text + "' where Name ='" + tbUserName.Text + "' AND SecretCode ='" + tbSecretCode.Text + "'";
+                dataReader.Close();
+                sql = "Select Password,Email From Professor where Email='" + tbEmail.Text + "';";
                 command = new SqlCommand(sql, dbConnection);
-                
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.UpdateCommand = command;
-                adapter.UpdateCommand.ExecuteNonQuery();
+                dataReader = command.ExecuteReader();
+
+                if (dataReader.HasRows == false) //Either is a Professor.
+                {
+                    MessageBox.Show("Invalid email.");
+                    dataReader.Close();
+                    command.Dispose();
+                    dbConnection.Close();
+                }
+                else //Professor
+                {
+                    dataReader.Read();
+                    String password = Eramake.eCryptography.Decrypt(dataReader.GetString(0));
+                    String email = dataReader.GetString(1);
+
+                    var mailService = new SystemSupportMail();
+                    int number = mailService.sendMail(
+                        subject: "SYSTEM: Password recovery request.",
+                        body: "Hello, you have requested to recover your password.\nYour current password is: " + password +
+                        " .\nHowever, we strongly recommend that you change it when you log in.",
+                        recipientMail: new List<String> { email }
+                        );
+                    if (number != 0) { 
+                        MessageBox.Show("The email have been sent successfully.");
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                    dbConnection.Close();
+                    Login login = new Login();
+                    login.Show();
+                    this.Hide();
+
+                }
+            }
+            else //Student
+            {
+                dataReader.Read();
+                String password = Eramake.eCryptography.Decrypt(dataReader.GetString(0));
+                String email = dataReader.GetString(1);
+
+                var mailService = new SystemSupportMail();
+                int number = mailService.sendMail(
+                    subject: "SYSTEM: Password recovery request.",
+                    body: "Hello, you have requested to recover your password.\nYour current password is: " + password +
+                    " .\nHowever, we strongly recommend that you change it when you log in.",
+                    recipientMail: new List<String> { email }
+                    );
+                if (number != 0)
+                {
+                    MessageBox.Show("The email have been sent successfully.");
+                }
+
+                dataReader.Close();
                 command.Dispose();
+                dbConnection.Close();
+
+                Login login = new Login();
+                login.Show();
+                this.Hide();
+
 
             }
         }
