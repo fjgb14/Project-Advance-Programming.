@@ -49,6 +49,8 @@
             // 
             // dgvEXAM_STUDENT
             // 
+            this.dgvEXAM_STUDENT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEXAM_STUDENT.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvEXAM_STUDENT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEXAM_STUDENT.Location = new System.Drawing.Point(101, 101);
             this.dgvEXAM_STUDENT.Name = "dgvEXAM_STUDENT";
@@ -91,11 +93,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(327, 64);
+            this.label1.Location = new System.Drawing.Point(273, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 24);
+            this.label1.Size = new System.Drawing.Size(281, 24);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Your exam grades";
+            this.label1.Text = "The grade of the students exam.";
             // 
             // MainProfessor
             // 

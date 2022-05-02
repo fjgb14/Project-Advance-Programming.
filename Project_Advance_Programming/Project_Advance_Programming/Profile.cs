@@ -138,10 +138,6 @@ namespace Project_Advance_Programming
 
                                 MessageBox.Show("Email has been changed successfully.");
 
-                                Profile profile = new Profile(idUser);
-                                profile.Show();
-                                this.Hide();
-
                             }
                             else {
                                 MessageBox.Show("The verification code is invalid.");

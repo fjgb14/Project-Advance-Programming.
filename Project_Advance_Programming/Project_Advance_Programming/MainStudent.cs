@@ -67,11 +67,6 @@ namespace Project_Advance_Programming
                 dt.Load(dataReader);
                 dgvEXAM_STUDENT.DataSource = dt;
             }
-            else
-            {
-                dgvEXAM_STUDENT.DataSource = null;
-                MessageBox.Show("Work but there are not yet.");
-            }
 
             dataReader.Close();
             command.Dispose();
