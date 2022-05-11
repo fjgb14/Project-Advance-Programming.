@@ -94,6 +94,7 @@
             this.tbPassword.Size = new System.Drawing.Size(331, 20);
             this.tbPassword.TabIndex = 12;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // label1
             // 
@@ -104,6 +105,7 @@
             this.label1.Size = new System.Drawing.Size(79, 18);
             this.label1.TabIndex = 11;
             this.label1.Text = "Password:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbNewPassword
             // 
@@ -112,6 +114,7 @@
             this.tbNewPassword.Size = new System.Drawing.Size(331, 20);
             this.tbNewPassword.TabIndex = 14;
             this.tbNewPassword.UseSystemPasswordChar = true;
+            this.tbNewPassword.TextChanged += new System.EventHandler(this.tbNewPassword_TextChanged);
             // 
             // label4
             // 
@@ -122,6 +125,7 @@
             this.label4.Size = new System.Drawing.Size(111, 18);
             this.label4.TabIndex = 13;
             this.label4.Text = "New password:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // bExit
             // 

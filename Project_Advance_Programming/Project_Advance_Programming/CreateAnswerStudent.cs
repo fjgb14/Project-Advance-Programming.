@@ -34,6 +34,8 @@ namespace Project_Advance_Programming
             this.codeExam = codeExam;
             this.numberQuestion = numberQuestion;
             this.CorrectQuestions = CorrectQuestions;
+            
+            rb1.Checked = true;
 
             this.lQuestionN.Text = "Question " + numberQuestion;
 
@@ -81,42 +83,46 @@ namespace Project_Advance_Programming
 
         private void bNextQuestion_Click(object sender, EventArgs e)
         {
-            if (tbNumberAnswerCorrect.Text == null || tbNumberAnswerCorrect.Text == "")
-            {
-                MessageBox.Show("Enter a correct option.");
-                CreateAnswerStudent createAnswerStudent = new CreateAnswerStudent(studentId, codeExam, numberQuestion, CorrectQuestions);
-                this.Hide();
-                createAnswerStudent.ShowDialog();
-            }
-            else
-            {
-                int numberAnswerStudent = int.Parse(tbNumberAnswerCorrect.Text);
-
-                if (numberAnswerCorrect == numberAnswerStudent)
+                if (numberAnswerCorrect == 1 && rb1.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if (numberAnswerCorrect == 2 && rb2.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if (numberAnswerCorrect == 3 && rb3.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if(numberAnswerCorrect == 4 && rb4.Checked == true)
                 {
                     CorrectQuestions = CorrectQuestions + 1;
                 }
 
+
                 CreateAnswerStudent createAnswerStudent = new CreateAnswerStudent(studentId, codeExam, numberQuestion + 1, CorrectQuestions);
                 this.Hide();
                 createAnswerStudent.ShowDialog();
-            }
         }
 
         private void bFinish_Click(object sender, EventArgs e)
         {
-            if (tbNumberAnswerCorrect.Text == null || tbNumberAnswerCorrect.Text == "")
-            {
-                MessageBox.Show("Enter a correct option.");
-                CreateAnswerStudent createAnswerStudent = new CreateAnswerStudent(studentId, codeExam, numberQuestion, CorrectQuestions);
-                this.Hide();
-                createAnswerStudent.ShowDialog();
-            }
-            else
-            {
-                int numberAnswerStudent = int.Parse(tbNumberAnswerCorrect.Text);
 
-                if (numberAnswerCorrect == numberAnswerStudent)
+
+                if (numberAnswerCorrect == 1 && rb1.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if (numberAnswerCorrect == 2 && rb2.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if (numberAnswerCorrect == 3 && rb3.Checked == true)
+                {
+                    CorrectQuestions = CorrectQuestions + 1;
+                }
+                else if (numberAnswerCorrect == 4 && rb4.Checked == true)
                 {
                     CorrectQuestions = CorrectQuestions + 1;
                 }
@@ -144,7 +150,7 @@ namespace Project_Advance_Programming
                 MessageBox.Show("Your mark is:" + (CorrectQuestions * 2));
                 this.Hide();
                 mainStudent.ShowDialog();
-            }
+            
         }
 
         private void updateMark(int studentId, int codeExam)
@@ -152,7 +158,7 @@ namespace Project_Advance_Programming
             dbConnection = new SqlConnection(connectionString);
             dbConnection.Open();
 
-            sql = "UPDATE Exam_Student SET Grade = '" + CorrectQuestions * 2 + "' WHERE Id = '" + studentId + "' and CodeExam= '" + codeExam + "'";
+            sql = "UPDATE Exam_Student SET Grade = '" + (CorrectQuestions * 2) + "' WHERE IdStudent = '" + studentId + "' and CodeExam= '" + codeExam + "'";
             command = new SqlCommand(sql, dbConnection);
             command.ExecuteNonQuery();
 

@@ -19,6 +19,7 @@ namespace Project_Advance_Programming
         string sql;
         SqlCommand command;
         SqlDataReader dataReader;
+        String password = "";
 
         public Login()
         {
@@ -32,14 +33,14 @@ namespace Project_Advance_Programming
 
             if (dbConnection != null && dbConnection.State == ConnectionState.Open)
             {
-                sql = "Select Id,Name From Student where Email='" + tbUsername.Text + "' AND Password='" + Eramake.eCryptography.Encrypt(tbPassword.Text) + "'";
+                sql = "Select Id,Name,PasswordChanged From Student where Email='" + tbUsername.Text + "' AND Password='" + Eramake.eCryptography.Encrypt(tbPassword.Text) + "'";
                 command = new SqlCommand(sql, dbConnection);
                 dataReader = command.ExecuteReader();
                 if (dataReader.HasRows == false) //Not is a Student, maybe is a professor.
                 {
                     dataReader.Close();
 
-                    sql = "Select Id,Name From Professor where Email='" + tbUsername.Text + "' AND Password='" + Eramake.eCryptography.Encrypt(tbPassword.Text) + "'";
+                    sql = "Select Id,Name,PasswordChanged From Professor where Email='" + tbUsername.Text + "' AND Password='" + Eramake.eCryptography.Encrypt(tbPassword.Text) + "'";
                     command = new SqlCommand(sql, dbConnection);
                     dataReader = command.ExecuteReader();
 
@@ -55,18 +56,41 @@ namespace Project_Advance_Programming
                         dataReader.Read();
                         int idProfessor = dataReader.GetInt32(0);
                         String name = dataReader.GetString(1);
+                        String passwordChanged = dataReader.GetString(2);
+                        Char[] letter = passwordChanged.ToCharArray();
+                        char pass = letter[0];
+                        password = tbPassword.Text;
 
                         MessageBox.Show("Welcome. " + name);
-                        
-                        MainProfessor mainProfessor = new MainProfessor(idProfessor,name);
-                        mainProfessor.lWelcomeProfessor.Text = "Welcome " + name;
-                        mainProfessor.Show();
 
-                        dataReader.Close();
-                        command.Dispose();
-                        dbConnection.Close();
+                        if (pass.Equals('y'))
+                        {
 
-                        this.Hide();
+                            MainProfessor mainProfessor = new MainProfessor(idProfessor, name);
+                            mainProfessor.lWelcomeProfessor.Text = "Welcome " + name;
+                            mainProfessor.Show();
+
+                            dataReader.Close();
+                            command.Dispose();
+                            dbConnection.Close();
+
+                            this.Hide();
+
+                        }
+                        else {
+
+                            TemporalPassword temporalPassword = new TemporalPassword(idProfessor,name,"professor",password);
+                            temporalPassword.Show();
+
+                            dataReader.Close();
+                            command.Dispose();
+                            dbConnection.Close();
+
+                            this.Hide();
+
+                        }
+
+
 
                     }
 
@@ -76,19 +100,37 @@ namespace Project_Advance_Programming
                     dataReader.Read();
                     int idStudent = dataReader.GetInt32(0);
                     String name = dataReader.GetString(1);
+                    String passwordChanged = dataReader.GetString(2);
+                    Char[] letter = passwordChanged.ToCharArray();
+                    char pass = letter[0];
+                    password = tbPassword.Text;
 
                     MessageBox.Show("Welcome. " + name);
 
+                    if (pass.Equals('y'))
+                    {
 
-                    MainStudent mainStudent = new MainStudent(idStudent,name);
-                    mainStudent.labelWelcomeStudent.Text = "Welcome " + name;
-                    mainStudent.Show();
+                        MainStudent mainStudent = new MainStudent(idStudent, name);
+                        mainStudent.labelWelcomeStudent.Text = "Welcome " + name;
+                        mainStudent.Show();
 
-                    dataReader.Close();
-                    command.Dispose();
-                    dbConnection.Close();
+                        dataReader.Close();
+                        command.Dispose();
+                        dbConnection.Close();
 
-                    this.Hide();
+                        this.Hide();
+
+                    }
+                    else {
+                        TemporalPassword temporalPassword = new TemporalPassword(idStudent, name, "student", password);
+                        temporalPassword.Show();
+
+                        dataReader.Close();
+                        command.Dispose();
+                        dbConnection.Close();
+
+                        this.Hide();
+                    }
 
 
                 }
@@ -96,7 +138,7 @@ namespace Project_Advance_Programming
             }
         }
 
-        private void EncryptPassword(int id,String encrypPass)
+        /*private void EncryptPassword(int id,String encrypPass)
         {
             dbConnection = new SqlConnection(connectionString);
             dbConnection.Open();
@@ -108,6 +150,7 @@ namespace Project_Advance_Programming
             command.Dispose();
             dbConnection.Close();
         }
+        */
         private void llForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ForgotPassword forgotPassword = new ForgotPassword();

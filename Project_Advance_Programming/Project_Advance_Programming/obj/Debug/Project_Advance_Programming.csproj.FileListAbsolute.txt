@@ -18,3 +18,4 @@ C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Progr
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.CreateAnswerStudent.resources
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.CreateQuestion.resources
 C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.csproj.CopyComplete
+C:\Users\Fran\Documents\GitHub\Project_Advance_Programming\Project_Advance_Programming\obj\Debug\Project_Advance_Programming.TemporalPassword.resources

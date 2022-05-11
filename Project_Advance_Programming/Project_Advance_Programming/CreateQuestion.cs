@@ -31,6 +31,7 @@ namespace Project_Advance_Programming
             this.CodeExam = codeExam;
             this.numberQuestion = numberQuestion;
             this.idProfessor = idProfessor;
+            rb1.Checked = true;
 
             this.lQuestionN.Text = "Question " + numberQuestion;
             if (numberQuestion == 5)
@@ -47,16 +48,27 @@ namespace Project_Advance_Programming
 
         private void QuestionCreate()
         {
-            if (tbAnswer1.Text == null || tbAnswer1.Text == "" || tbAnswer2.Text == null || tbAnswer2.Text == "" || tbAnswer3.Text == null || tbAnswer3.Text == "" || tbAnswer4.Text == null || tbAnswer4.Text == "" || tbNameQuestion.Text == null || tbNameQuestion.Text == "" || tbNumberAnswerCorrect.Text == null || tbNumberAnswerCorrect.Text == "")
-            {
-                MessageBox.Show("Please enter the correct data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+            int correctAnswer = 0;
+                if (rb1.Checked == true)
+                {
+                    correctAnswer = 1;
+                }
+                else if (rb2.Checked == true)
+                {
+                    correctAnswer = 2;
+                }
+                else if (rb3.Checked == true)
+                {
+                    correctAnswer = 3;
+                }
+                else {
+                    correctAnswer = 4;
+                }
+
 
                 dbConnection = new SqlConnection(connectionString);
                 dbConnection.Open();
-                sql = "insert into Question (NumberQuestion,NameQuestion,Answer_1,Answer_2,Answer_3,Answer_4,NumberAnswerCorrect,CodeExam) values ('" + numberQuestion + "','" + tbNameQuestion.Text + "','" + tbAnswer1.Text + "','" + tbAnswer2.Text + "','" + tbAnswer3.Text + "','" + tbAnswer4.Text + "','" + int.Parse(tbNumberAnswerCorrect.Text) + "','" + CodeExam + "')";
+                sql = "insert into Question (NumberQuestion,NameQuestion,Answer_1,Answer_2,Answer_3,Answer_4,NumberAnswerCorrect,CodeExam) values ('" + numberQuestion + "','" + tbNameQuestion.Text + "','" + tbAnswer1.Text + "','" + tbAnswer2.Text + "','" + tbAnswer3.Text + "','" + tbAnswer4.Text + "','" + correctAnswer + "','" + CodeExam + "')";
                 command = new SqlCommand(sql, dbConnection);
 
                 adapter = new SqlDataAdapter();
@@ -67,7 +79,6 @@ namespace Project_Advance_Programming
                 adapter.Dispose();
                 command.Dispose();
                 dbConnection.Close();
-            }
         }
 
         private String searchName(int idProfesor) {
@@ -89,20 +100,21 @@ namespace Project_Advance_Programming
         }
 
         private void bNextQuestion_Click(object sender, EventArgs e)
-        {
-            QuestionCreate();
-            CreateQuestion createQuestion = new CreateQuestion(CodeExam, numberQuestion, idProfessor);
-            this.Hide();
-            createQuestion.ShowDialog();
+        { 
+                QuestionCreate();
+                CreateQuestion createQuestion = new CreateQuestion(CodeExam, numberQuestion, idProfessor);
+                this.Hide();
+                createQuestion.ShowDialog();
         }
 
         private void bFinish_Click(object sender, EventArgs e)
         {
-            QuestionCreate();
-            MainProfessor mainProfessor = new MainProfessor(idProfessor,searchName(idProfessor));
-            MessageBox.Show("Exam successfully created.");
-            this.Hide();
-            mainProfessor.ShowDialog();
+                QuestionCreate();
+                MainProfessor mainProfessor = new MainProfessor(idProfessor, searchName(idProfessor));
+                MessageBox.Show("Exam successfully created.");
+                this.Hide();
+                mainProfessor.ShowDialog();
+
         }
     }
 }

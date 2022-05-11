@@ -35,14 +35,16 @@
             this.labelNameQuestion = new System.Windows.Forms.Label();
             this.bFinish = new System.Windows.Forms.Button();
             this.bNextQuestion = new System.Windows.Forms.Button();
-            this.tbNumberAnswerCorrect = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lQuestionN = new System.Windows.Forms.Label();
+            this.rb4 = new System.Windows.Forms.RadioButton();
+            this.rb3 = new System.Windows.Forms.RadioButton();
+            this.rb2 = new System.Windows.Forms.RadioButton();
+            this.rb1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // labelAnswer4
@@ -117,23 +119,6 @@
             this.bNextQuestion.UseVisualStyleBackColor = true;
             this.bNextQuestion.Click += new System.EventHandler(this.bNextQuestion_Click);
             // 
-            // tbNumberAnswerCorrect
-            // 
-            this.tbNumberAnswerCorrect.Location = new System.Drawing.Point(247, 389);
-            this.tbNumberAnswerCorrect.Name = "tbNumberAnswerCorrect";
-            this.tbNumberAnswerCorrect.Size = new System.Drawing.Size(28, 20);
-            this.tbNumberAnswerCorrect.TabIndex = 42;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 389);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 20);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Number Answer Correct:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -194,11 +179,55 @@
             this.lQuestionN.TabIndex = 35;
             this.lQuestionN.Text = "Question n";
             // 
+            // rb4
+            // 
+            this.rb4.AutoSize = true;
+            this.rb4.Location = new System.Drawing.Point(721, 330);
+            this.rb4.Name = "rb4";
+            this.rb4.Size = new System.Drawing.Size(14, 13);
+            this.rb4.TabIndex = 53;
+            this.rb4.TabStop = true;
+            this.rb4.UseVisualStyleBackColor = true;
+            // 
+            // rb3
+            // 
+            this.rb3.AutoSize = true;
+            this.rb3.Location = new System.Drawing.Point(721, 273);
+            this.rb3.Name = "rb3";
+            this.rb3.Size = new System.Drawing.Size(14, 13);
+            this.rb3.TabIndex = 52;
+            this.rb3.TabStop = true;
+            this.rb3.UseVisualStyleBackColor = true;
+            // 
+            // rb2
+            // 
+            this.rb2.AutoSize = true;
+            this.rb2.Location = new System.Drawing.Point(721, 212);
+            this.rb2.Name = "rb2";
+            this.rb2.Size = new System.Drawing.Size(14, 13);
+            this.rb2.TabIndex = 51;
+            this.rb2.TabStop = true;
+            this.rb2.UseVisualStyleBackColor = true;
+            // 
+            // rb1
+            // 
+            this.rb1.AutoSize = true;
+            this.rb1.Location = new System.Drawing.Point(721, 148);
+            this.rb1.Name = "rb1";
+            this.rb1.Size = new System.Drawing.Size(14, 13);
+            this.rb1.TabIndex = 50;
+            this.rb1.TabStop = true;
+            this.rb1.UseVisualStyleBackColor = true;
+            // 
             // CreateAnswerStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rb4);
+            this.Controls.Add(this.rb3);
+            this.Controls.Add(this.rb2);
+            this.Controls.Add(this.rb1);
             this.Controls.Add(this.labelAnswer4);
             this.Controls.Add(this.labelAnswer3);
             this.Controls.Add(this.labelAnswer2);
@@ -206,8 +235,6 @@
             this.Controls.Add(this.labelNameQuestion);
             this.Controls.Add(this.bFinish);
             this.Controls.Add(this.bNextQuestion);
-            this.Controls.Add(this.tbNumberAnswerCorrect);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -230,13 +257,15 @@
         public System.Windows.Forms.Label labelNameQuestion;
         private System.Windows.Forms.Button bFinish;
         private System.Windows.Forms.Button bNextQuestion;
-        private System.Windows.Forms.TextBox tbNumberAnswerCorrect;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lQuestionN;
+        private System.Windows.Forms.RadioButton rb4;
+        private System.Windows.Forms.RadioButton rb3;
+        private System.Windows.Forms.RadioButton rb2;
+        private System.Windows.Forms.RadioButton rb1;
     }
 }
